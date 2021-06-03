@@ -14,7 +14,7 @@ try{
         }
         stage('code checkout'){
             echo "code checkout in progress"
-            git ':https://github.com/revarawat13/batch10.git'
+            git ':https://github.com/revarawat13/batch10-1.git'
         }
         stage('Build, Test and Package'){
             echo "build in progress"
