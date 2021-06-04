@@ -44,5 +44,5 @@ try{
 catch(Exception err){
     echo "Exception occured..."
     currentBuild.result="FAILURE"
-    //send an failure email notification to the user.
+    emailext body: 'Your build is aborted.', subject: 'Build Failure', to: 'revarawat13@gmail.com'
 }
