@@ -39,6 +39,10 @@ try{
                 sh "${dockerCMD} push 199378/bootcampapp:${tagName}"
             }
         }
+        stage('Deploy Application Using Docker'){
+            echo "Deploying application usind docker via ansible"
+            ansiblePlaybook installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'casestudy-playbook.yml'
+        }
     }
 }
 catch(Exception err){
