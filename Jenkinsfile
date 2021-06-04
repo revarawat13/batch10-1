@@ -46,3 +46,7 @@ catch(Exception err){
     currentBuild.result="FAILURE"
     emailext body: 'Your build is aborted.', subject: 'Build Failure', to: 'revarawat13@gmail.com'
 }
+finally {
+    echo "email for every build"
+    emailext body: 'This is to inform the status of build', subject: 'Build Status', to: 'revarawat13@gmail.com'
+}
