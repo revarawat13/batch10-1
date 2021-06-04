@@ -24,6 +24,10 @@ try{
             echo "Code quality scanning in progress "
             sh "${mavenCMD} sonar:sonar -Dsonar.host.url=http://35.224.61.74:9000/"
         }
+        stage('Integration test'){
+            echo "Testing in progress."
+            // command to execute selenium test suits
+        }
         stage('HTML report'){
             echo "HTML Report generation in progress"
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'src/main/resources/static/', reportFiles: 'report.html', reportName: 'HTML Report of the Application', reportTitles: ''])
@@ -51,6 +55,6 @@ catch(Exception err){
     emailext body: 'Your build is aborted.', subject: 'Build Failure', to: 'revarawat13@gmail.com'
 }
 finally {
-    echo "email for every build"
+    (currentBuild.result!= "ABORTED") && node("master") {
     emailext body: 'This is to inform the status of build', subject: 'Build Status', to: 'revarawat13@gmail.com'
 }
