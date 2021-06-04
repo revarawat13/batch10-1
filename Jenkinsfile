@@ -24,6 +24,10 @@ try{
             echo "Code quality scanning in progress "
             sh "${mavenCMD} sonar:sonar -Dsonar.host.url=http://35.224.61.74:9000/"
         }
+        stage('HTML report'){
+            echo "HTML Report generation in progress"
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'src/main/resources/static/', reportFiles: 'report.html', reportName: 'HTML Report of the Application', reportTitles: ''])
+        }
         stage('Build Docker Image'){
             echo "Building docker image for addressbook application ..."
             sh "${dockerCMD} build -t 199378/bootcampapp:${tagName} ."
