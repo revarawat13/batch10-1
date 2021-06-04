@@ -33,6 +33,8 @@ try{
             withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'password', usernameVariable: 'username')]) {
                 sh "${dockerCMD} login -u 199378 -p ${dockerHubPwd}"
                 sh "${dockerCMD} push 199378/bootcampapp:${tagName}"
+                echo "image push done"
+        echo "stage push done"
             }
         }
     }
