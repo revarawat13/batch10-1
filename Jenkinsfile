@@ -30,7 +30,7 @@ try{
         }
         stage("Push Docker Image to Docker Registry"){
             echo "Pushing image to docker hub"
-            withCredentials([string(credentialsId: 'dockerPwd', variable: 'dockerHubPwd')]) {
+            withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'password', usernameVariable: 'username')]) {
                 sh "${dockerCMD} login -u 199378 -p ${dockerHubPwd}"
                 sh "${dockerCMD} push 199378/bootcampapp:${tagName}"
             }
