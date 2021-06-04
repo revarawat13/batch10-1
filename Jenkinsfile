@@ -45,7 +45,7 @@ try{
         }
         stage('Deploy Application Using Docker'){
             echo "Deploying application usind docker via ansible"
-            ansiblePlaybook credentialsId: 'ansibleprivatekey', installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'casestudy-playbook.yml'
+            ansiblePlaybook credentialsId: 'ansibleprivatekey', installation: 'ansible', inventory: 'dev.inv', playbook: 'casestudy-playbook.yml'
         }
     }
 }
@@ -57,4 +57,5 @@ catch(Exception err){
 finally {
     (currentBuild.result!= "ABORTED") && node("master") {
     emailext body: 'This is to inform the status of build', subject: 'Build Status', to: 'revarawat13@gmail.com'
+}
 }
