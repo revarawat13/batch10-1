@@ -41,7 +41,7 @@ try{
         }
         stage('Deploy Application Using Docker'){
             echo "Deploying application usind docker via ansible"
-            ansiblePlaybook credentialsId: 'ansiblecred', installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'casestudy-playbook.yml'
+            ansiblePlaybook credentialsId: 'ansibleprivatekey', installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'casestudy-playbook.yml'
         }
     }
 }
