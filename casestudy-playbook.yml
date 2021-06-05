@@ -12,7 +12,7 @@
       state: started
       enabled: true
   - name: deploy application
-    command: sudo docker run -it -d -p 8085:8080 199378/bootcampapp:1.0
+    command: sudo docker run -it -d -p 8888:8888 199378/bootcampapp:1.0
   handlers:
   - name: run update
     apt:
