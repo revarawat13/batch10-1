@@ -1,1 +1,1 @@
-10.128.0.11 ansible_user=root ansible_pass=Pressure@13
+10.128.0.11 ansible_ssh_pass=Pressure@13 ansible_ssh_user=root
