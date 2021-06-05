@@ -1,2 +1,2 @@
 [appserver]
-10.128.0.11 ansible_user=root
+10.128.0.11 ansible_user=root ansible_pass=Pressure@13
